@@ -55,5 +55,3 @@ if __name__ == "__main__":
 
     opt_value = get_optimal_value(capacity, weights, values)
     print("{:.4f}".format(opt_value))
-
-#Important: press ctrl+z after you enter all inputs in command line, otherwise it won't stop taking inputs.
