@@ -1,12 +1,12 @@
-def change_money(m):
-    assert m>=1 and m<=1000
+def change_money(m, coins=(10,5,1), print_change=False):
+    assert 1<= m<=1000
     amount_given=m
-    coins=[10,5,1]
-    minimum_coins=0
+    num_coins=[0 for i in range(len(coins))]
     for i in range(len(coins)):
-        while amount_given>=coins[i]:
-            minimum_coins+=1
-            amount_given-=coins[i]
-    return minimum_coins
-inp=int(input())
-print (change_money(inp))
+        if amount_given==0:
+            break
+        coin=coins[i]
+        quotient_and_remainder=divmod(amount_given, coin)
+        num_coins[i]=quotient_and_remainder[0]
+        amount_given=quotient_and_remainder[1]
+    return sum(num_coins)
